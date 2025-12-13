@@ -9,9 +9,9 @@ namespace LinqAdvancedLab.Data.Seeding
         {
             return new List<Product>
             {
-                new Product { Id=1, Name="Laptop", Price=1200, Stock=5, CategoryId=1 },
-                new Product { Id=2, Name="Mouse", Price=25, Stock=50, CategoryId=1 },
-                new Product { Id=3, Name="Silla", Price=150, Stock=3, CategoryId=2 }
+                new Product { Id=1, Name="Laptop", Price=1200, Stock=5, CategoryId=1, Category = null! },
+                new Product { Id=2, Name="Mouse", Price=25, Stock=50, CategoryId=1, Category = null! },
+                new Product { Id=3, Name="Silla", Price=150, Stock=3, CategoryId=2, Category = null! }
             };
         }
 

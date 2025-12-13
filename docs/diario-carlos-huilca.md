@@ -1,4 +1,4 @@
-# Diario de Aprendizaje – Carlos Huilca – Sesión 0
+# Diario de Aprendizaje – Carlos Huilca – Sesión 1
 
 ## 1. Objetivos del día
 
@@ -24,7 +24,7 @@
 
 ---
 
-# Diario de Aprendizaje – Carlos Huilca – Día 2
+# Diario de Aprendizaje – Carlos Huilca – Sesión 2
 
 ## 1. Objetivos del día
 
@@ -88,7 +88,7 @@ namespace LinqAdvancedLab.Data.Repositories {
 
 ---
 
-# Diario de Aprendizaje – Carlos Huilca – Día 3
+# Diario de Aprendizaje – Carlos Huilca – Sesión 3
 
 ## 1. Objetivos del día
 
@@ -121,6 +121,10 @@ Tareas de integración/corrección aplicadas en equipo (resumen):
 ## 4. Tiempo invertido
 
 - 3 horas
+
+# Diario de Aprendizaje – Carlos Huilca – Sesión 4
+
+- Creacion de video demo y informe
 
 ---
 

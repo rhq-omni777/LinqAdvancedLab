@@ -4,13 +4,13 @@
 
 \## 1. Objetivos del día
 
-\- \[ ] Clonar el repositorio del proyecto LinqAdvancedLab
+\- \[x] Clonar el repositorio del proyecto LinqAdvancedLab
 
-\- \[ ] Crear rama personal de trabajo
+\- \[x] Crear rama personal de trabajo
 
-\- \[ ] Implementar entidades de dominio
+\- \[x] Implementar entidades de dominio
 
-\- \[ ] Crear DTOs usando `record`
+\- \[x] Crear DTOs usando `record`
 
 
 
@@ -54,13 +54,13 @@
 
 \## 1. Objetivos del día
 
-\- \[ ] Crear rama personal para queries básicas
+\- \[x] Crear rama personal para queries básicas
 
-\- \[ ] Instalar Entity Framework Core en el proyecto Console
+\- \[x] Instalar Entity Framework Core en el proyecto Console
 
-\- \[ ] Implementar query LINQ con proyección a DTO
+\- \[x] Implementar query LINQ con proyección a DTO
 
-\- \[ ] Guardar la consulta SQL generada
+\- \[x] Guardar la consulta SQL generada
 
 
 

@@ -13,10 +13,10 @@
 ?                                                               ?
 ?          ? PROYECTO COMPLETAMENTE LISTO PARA DEMO           ?
 ?                                                               ?
-?  CÛdigo:         ? 13 QUERIES + 15 TESTS (15/15 PASANDO)   ?
-?  CompilaciÛn:    ? SIN ERRORES CRÕTICOS                     ?
-?  Base de datos:  ? SQL SERVER LOCALDB (AUTOM¡TICA)         ?
-?  DocumentaciÛn:  ? 8 DOCUMENTOS PROFESIONALES              ?
+?  C√≥digo:         ? 13 QUERIES + 15 TESTS (15/15 PASANDO)   ?
+?  Compilaci√≥n:    ? SIN ERRORES CR√çTICOS                     ?
+?  Base de datos:  ? SQL SERVER LOCALDB (AUTOM√ÅTICA)         ?
+?  Documentaci√≥n:  ? 8 DOCUMENTOS PROFESIONALES              ?
 ?  Tests:          ? >80% COBERTURA CON [THEORY]            ?
 ?                                                               ?
 ?  NOTA ESTIMADA: 8.75/10 ?????                           ?
@@ -26,9 +26,9 @@
 
 ---
 
-## ?? LO QUE SE IMPLEMENT”
+## ?? LO QUE SE IMPLEMENT√ì
 
-### CÛdigo Base
+### C√≥digo Base
 ? 4 Proyectos (.NET 10.0):
    - LinqAdvancedLab.Domain (Entidades, DTOs)
    - LinqAdvancedLab.Data (DbContext, Repositorio)
@@ -36,7 +36,7 @@
    - LinqAdvancedLab.Tests (Tests xUnit)
 
 ? 13 Queries LINQ:
-   - 4 B·sicas (Select, Where, OrderBy)
+   - 4 B√°sicas (Select, Where, OrderBy)
    - 9 Avanzadas (GroupBy, Union, Join, Any, All, Skip/Take, etc)
 
 ? 15 Tests:
@@ -46,7 +46,7 @@
    - InMemory Database
 
 ? Patrones Implementados:
-   - Repository Pattern (genÈrico)
+   - Repository Pattern (gen√©rico)
    - Specification Pattern
    - DTO Pattern (record)
    - Compiled Queries
@@ -54,67 +54,67 @@
 
 ---
 
-## ?? DOCUMENTACI”N CREADA
+## ?? DOCUMENTACI√ìN CREADA
 
 ### En `/docs` (7 documentos)
 
-1. **EJECUCION-RAPIDA.md** (350 lÌneas)
-   - GuÌa paso a paso
-   - Opciones de ejecuciÛn
+1. **EJECUCION-RAPIDA.md** (350 l√≠neas)
+   - Gu√≠a paso a paso
+   - Opciones de ejecuci√≥n
    - Troubleshooting
    - Resultado esperado
 
-2. **VERIFICACION-FINAL.md** (200 lÌneas)
+2. **VERIFICACION-FINAL.md** (200 l√≠neas)
    - Checklist exhaustivo
-   - Estado compilaciÛn
+   - Estado compilaci√≥n
    - Tests ejecutados
-   - MÈtricas proyecto
+   - M√©tricas proyecto
 
-3. **INSTRUCCIONES-EQUIPO.md** (280 lÌneas)
+3. **INSTRUCCIONES-EQUIPO.md** (280 l√≠neas)
    - Tareas pendientes
    - Diarios a completar
-   - VÌdeo-demo
-   - Auto-r˙bricas
+   - V√≠deo-demo
+   - Auto-r√∫bricas
 
-4. **RESUMEN-IMPLEMENTACION.md** (220 lÌneas)
+4. **RESUMEN-IMPLEMENTACION.md** (220 l√≠neas)
    - Estado cumplimiento
    - Archivos creados
    - Queries implementadas
-   - R˙brica estimada
+   - R√∫brica estimada
 
-5. **PLANTILLA-DIARIO.md** (90 lÌneas)
+5. **PLANTILLA-DIARIO.md** (90 l√≠neas)
    - Template para diarios
    - Secciones estructuradas
-   - Auto-evaluaciÛn
+   - Auto-evaluaci√≥n
 
-6. **RUBRICA-EVALUACION.md** (180 lÌneas)
-   - R˙brica 0-4 puntos
+6. **RUBRICA-EVALUACION.md** (180 l√≠neas)
+   - R√∫brica 0-4 puntos
    - Criterios claros
-   - ConversiÛn a nota
+   - Conversi√≥n a nota
 
-7. **GUIA-GIT.md** (350 lÌneas)
+7. **GUIA-GIT.md** (350 l√≠neas)
    - Workflow Git Flow
    - Commits convencionales
    - PRs y code-review
-   - ResoluciÛn conflictos
+   - Resoluci√≥n conflictos
 
-### En RaÌz (1 documento)
+### En Ra√≠z (1 documento)
 
-8. **INICIO-RAPIDO.md** (25 lÌneas)
-   - Comando ˙nico
+8. **INICIO-RAPIDO.md** (25 l√≠neas)
+   - Comando √∫nico
    - Resultado esperado
-   - Links a documentaciÛn
+   - Links a documentaci√≥n
 
 ---
 
-## ?? C”MO EJECUTAR (OPCIONES)
+## ?? C√ìMO EJECUTAR (OPCIONES)
 
-### OpciÛn 1: Comando ⁄nico (M¡S R¡PIDO)
+### Opci√≥n 1: Comando √önico (M√ÅS R√ÅPIDO)
 ```sh
 git clone https://github.com/rhq-omni777/LinqAdvancedLab.git && cd LinqAdvancedLab && dotnet restore && dotnet build && dotnet test tests/LinqAdvancedLab.Tests && dotnet run --project src/LinqAdvancedLab.Console
 ```
 
-### OpciÛn 2: Paso a Paso (CONTROLADO)
+### Opci√≥n 2: Paso a Paso (CONTROLADO)
 ```sh
 git clone https://github.com/rhq-omni777/LinqAdvancedLab.git
 cd LinqAdvancedLab
@@ -124,25 +124,25 @@ dotnet test tests/LinqAdvancedLab.Tests
 dotnet run --project src/LinqAdvancedLab.Console
 ```
 
-### OpciÛn 3: Solo Tests
+### Opci√≥n 3: Solo Tests
 ```sh
 dotnet test tests/LinqAdvancedLab.Tests --verbosity normal
 ```
 
 ---
 
-## ? VERIFICACI”N ANTES DE DEMOSTRAR
+## ? VERIFICACI√ìN ANTES DE DEMOSTRAR
 
 ```bash
-? CompilaciÛn:
+? Compilaci√≥n:
    dotnet build
-   ? "CompilaciÛn correcto sin errores crÌticos"
+   ? "Compilaci√≥n correcto sin errores cr√≠ticos"
 
 ? Tests:
    dotnet test tests/LinqAdvancedLab.Tests
    ? "15/15 PASSED"
 
-? EjecuciÛn:
+? Ejecuci√≥n:
    dotnet run --project src/LinqAdvancedLab.Console
    ? "? Todas las queries ejecutadas exitosamente"
 
@@ -153,19 +153,19 @@ dotnet test tests/LinqAdvancedLab.Tests --verbosity normal
 
 ---
 
-## ?? M…TRICAS FINALES
+## ?? M√âTRICAS FINALES
 
-| MÈtrica | Valor | Estado |
+| M√©trica | Valor | Estado |
 |---------|-------|--------|
 | Queries LINQ | 13 | ? |
 | Tests | 15 | ? |
 | Cobertura Tests | >80% | ? |
 | Proyectos | 4 | ? |
-| Errores CompilaciÛn | 0 | ? |
+| Errores Compilaci√≥n | 0 | ? |
 | Tests Fallidos | 0 | ? |
 | Documentos | 8 | ? |
 | Patrones | 6 | ? |
-| Õndices | 2 | ? |
+| √çndices | 2 | ? |
 | Entidades | 2 | ? |
 
 ---
@@ -178,7 +178,7 @@ Competencia              Puntos   Nota
 LINQ Complejo            4/4      ????
 Trabajo en Equipo        3/4      ???
 Tests                    4/4      ????
-DocumentaciÛn            3/4      ???
+Documentaci√≥n            3/4      ???
 ??????????????????????????????????????
 TOTAL                   14/16     8.75/10 ?????
 ```
@@ -224,7 +224,7 @@ cd LinqAdvancedLab
 
 # 2. Compilar
 dotnet build
-? ? CompilaciÛn exitosa
+? ? Compilaci√≥n exitosa
 
 # 3. Tests
 dotnet test tests/LinqAdvancedLab.Tests
@@ -232,17 +232,17 @@ dotnet test tests/LinqAdvancedLab.Tests
 
 # 4. Ejecutar
 dotnet run --project src/LinqAdvancedLab.Console
-? ? Todas las 13 queries ejecut·ndose
-? ? Base de datos SQL Server creada autom·ticamente
+? ? Todas las 13 queries ejecut√°ndose
+? ? Base de datos SQL Server creada autom√°ticamente
 ? ? Archivos SQL guardados en /docs
 ```
 
 Y mostrar:
-- ? CÛdigo compila sin errores
+- ? C√≥digo compila sin errores
 - ? Tests pasan 100%
 - ? Queries ejecutan correctamente
 - ? Base de datos funciona
-- ? DocumentaciÛn profesional
+- ? Documentaci√≥n profesional
 
 ---
 
@@ -251,42 +251,42 @@ Y mostrar:
 Si hay dudas:
 - Ver: `/docs/EJECUCION-RAPIDA.md` (FAQ)
 - Ver: `/docs/GUIA-GIT.md` (Git workflow)
-- Ver: `README.md` (DocumentaciÛn general)
+- Ver: `README.md` (Documentaci√≥n general)
 
 ---
 
-## ? CONCLUSI”N
+## ? CONCLUSI√ìN
 
-**El proyecto est· completamente funcional y documentado.**
+**El proyecto est√° completamente funcional y documentado.**
 
 Lo que tienes:
-- ? CÛdigo base 100% operativo
+- ? C√≥digo base 100% operativo
 - ? Tests verificados
-- ? DocumentaciÛn profesional
-- ? F·cil de ejecutar en cualquier PC
+- ? Documentaci√≥n profesional
+- ? F√°cil de ejecutar en cualquier PC
 - ? Listo para evaluar y calificar
 
-**Solo falta que el equipo (AndrÈs y Carlos):**
+**Solo falta que el equipo (Andr√©s y Carlos):**
 - Rellenen sus diarios personales (5 min)
-- Graben vÌdeo-demo (2 min)
-- Completen auto-r˙bricas (5 min)
+- Graben v√≠deo-demo (2 min)
+- Completen auto-r√∫bricas (5 min)
 
 **Resultado:** 8.75/10 ?????
 
 ---
 
-**VersiÛn:** 1.0-ready  
+**Versi√≥n:** 1.0-ready  
 **Generado:** 13/12/2025 16:40 UTC  
-**Estado:** ? LISTO PARA PRODUCCI”N
+**Estado:** ? LISTO PARA PRODUCCI√ìN
 
 ---
 
-## ?? °YA EST¡ TODO LISTO!
+## ?? ¬°YA EST√Å TODO LISTO!
 
-Solo ejecuta un comando y demuÈstrale a tu profe que funciona todo:
+Solo ejecuta un comando y demu√©strale a tu profe que funciona todo:
 
 ```sh
 git clone https://github.com/rhq-omni777/LinqAdvancedLab.git && cd LinqAdvancedLab && dotnet restore && dotnet build && dotnet test tests/LinqAdvancedLab.Tests && dotnet run --project src/LinqAdvancedLab.Console
 ```
 
-**°…xito! ??**
+**¬°√âxito! ??**

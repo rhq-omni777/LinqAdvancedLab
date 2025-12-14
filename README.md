@@ -3,7 +3,7 @@
 **Video Demo**
 
 ```bash
-cd LinqAdvancedLab](https://drive.google.com/file/d/1PNxQb4eJVNIEmNqskGVdWl542xwrpqjY/view?usp=drive_link)
+https://drive.google.com/file/d/1PNxQb4eJVNIEmNqskGVdWl542xwrpqjY/view?usp=drive_link
 ```
 
 **Proyecto de aprendizaje: LINQ to SQL con Entity Framework Core**

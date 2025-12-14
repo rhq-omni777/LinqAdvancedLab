@@ -1,9 +1,8 @@
 # LinqAdvancedLab
 
-**Proyecto de aprendizaje: LINQ to SQL con Entity Framework Core**
+**Video Demo**
 
 ```bash
-[git clone https://github.com/rhq-omni777/LinqAdvancedLab.git
 cd LinqAdvancedLab](https://drive.google.com/file/d/1PNxQb4eJVNIEmNqskGVdWl542xwrpqjY/view?usp=drive_link)
 ```
 

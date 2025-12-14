@@ -12,14 +12,14 @@ namespace LinqAdvancedLab.Console.Consultas
     {
         private readonly AppDbContext _ctx;
         private static readonly Func<AppDbContext, decimal, IEnumerable<Product>> _filtro =
-            EF.CompileQuery((AppDbContext db, decimal p) => db.Products.Where(x => x.Price > p).AsEnumerable());
+            EF.CompileQuery((AppDbContext db, decimal p) => db.Products.Include(x => x.Category).Where(x => x.Price > p));
 
         public AdvancedQueries(AppDbContext ctx) => _ctx = ctx;
 
         /// <summary>Query 5: Paginación avanzada</summary>
         public PaginatedResult<ProductDto> GetPaginado(int page = 1, int pageSize = 5)
         {
-            var query = _ctx.Products.AsQueryable();
+            var query = _ctx.Products.Include(p => p.Category).AsQueryable();
             var total = query.Count();
             var items = query
                 .OrderBy(p => p.Id)
@@ -41,6 +41,7 @@ namespace LinqAdvancedLab.Console.Consultas
         public List<ProductosPorCategoria> AgregatosYGrouping()
         {
             var resultado = _ctx.Products
+                .Include(p => p.Category)
                 .GroupBy(p => p.Category.Name)
                 .Select(g => new ProductosPorCategoria
                 {
@@ -57,31 +58,37 @@ namespace LinqAdvancedLab.Console.Consultas
         }
 
         /// <summary>Query 7: Union de consultas</summary>
-        public List<Product> Union()
+        public List<ProductDto> Union()
         {
-            var productosCaros = _ctx.Products.Where(p => p.Price > 500);
-            var productosPocoStock = _ctx.Products.Where(p => p.Stock < 5);
-            var union = productosCaros.Union(productosPocoStock).ToList();
+            var productosCaros = _ctx.Products.Include(p => p.Category).Where(p => p.Price > 500);
+            var productosPocoStock = _ctx.Products.Include(p => p.Category).Where(p => p.Stock < 5);
+            var union = productosCaros.Union(productosPocoStock)
+                .Select(p => new ProductDto(p.Name, p.Price, p.Category.Name))
+                .ToList();
 
             return union;
         }
 
         /// <summary>Query 8: Intersect (productos con ambas condiciones)</summary>
-        public List<Product> Intersect()
+        public List<ProductDto> Intersect()
         {
-            var productosCaros = _ctx.Products.Where(p => p.Price > 500);
-            var productosPocoStock = _ctx.Products.Where(p => p.Stock < 5);
-            var interseccion = productosCaros.Intersect(productosPocoStock).ToList();
+            var productosCaros = _ctx.Products.Include(p => p.Category).Where(p => p.Price > 500);
+            var productosPocoStock = _ctx.Products.Include(p => p.Category).Where(p => p.Stock < 5);
+            var interseccion = productosCaros.Intersect(productosPocoStock)
+                .Select(p => new ProductDto(p.Name, p.Price, p.Category.Name))
+                .ToList();
 
             return interseccion;
         }
 
         /// <summary>Query 9: Except (productos caros que NO tienen poco stock)</summary>
-        public List<Product> Except()
+        public List<ProductDto> Except()
         {
-            var productosCaros = _ctx.Products.Where(p => p.Price > 500);
-            var productosPocoStock = _ctx.Products.Where(p => p.Stock < 5);
-            var diferencia = productosCaros.Except(productosPocoStock).ToList();
+            var productosCaros = _ctx.Products.Include(p => p.Category).Where(p => p.Price > 500);
+            var productosPocoStock = _ctx.Products.Include(p => p.Category).Where(p => p.Stock < 5);
+            var diferencia = productosCaros.Except(productosPocoStock)
+                .Select(p => new ProductDto(p.Name, p.Price, p.Category.Name))
+                .ToList();
 
             return diferencia;
         }
@@ -130,16 +137,18 @@ namespace LinqAdvancedLab.Console.Consultas
         }
 
         /// <summary>Query compilada para filtro por precio (requisito PDF)</summary>
-        public List<Product> CompiladaFiltro(decimal precioMinimo)
+        public List<ProductDto> CompiladaFiltro(decimal precioMinimo)
         {
-            var res = _filtro(_ctx, precioMinimo).ToList();
+            var res = _filtro(_ctx, precioMinimo)
+                .Select(p => new ProductDto(p.Name, p.Price, p.Category.Name))
+                .ToList();
             return res;
         }
 
         /// <summary>Query 13: Paginación con búsqueda y filtros múltiples</summary>
         public PaginatedResult<ProductDto> BusquedaAvanzada(string busqueda, int? categoryId, decimal? precioMin, int page = 1, int pageSize = 5)
         {
-            var query = _ctx.Products.AsQueryable();
+            var query = _ctx.Products.Include(p => p.Category).AsQueryable();
 
             if (!string.IsNullOrEmpty(busqueda))
                 query = query.Where(p => p.Name.Contains(busqueda));

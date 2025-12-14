@@ -76,9 +76,33 @@ Verá todas las 13 queries ejecutándose.
 
 ---
 
-## ? RESULTADO ESPERADO
+## ?? OPCIONES ADICIONALES (RECREAR BASE)
 
-Cuando termine, deberías ver:
+Si quieres forzar recreación de la base (elimina y vuelve a aplicar el seed):
+
+PowerShell:
+```powershell
+# Opción 1: flag --recreate
+dotnet run --project src\LinqAdvancedLab.Console -- --recreate
+
+# Opción 2: variable de entorno
+$env:RECREATE_DB = "1"
+dotnet run --project src\LinqAdvancedLab.Console
+Remove-Item Env:\RECREATE_DB
+```
+
+CMD:
+```cmd
+set RECREATE_DB=1 && dotnet run --project src\LinqAdvancedLab.Console
+```
+
+**Uso recomendado para demo:** usar `--recreate` para garantizar que el seed actualizado se carga.
+
+---
+
+## ? RESULTADO ESPERADO (ACTUALIZADO)
+
+Cuando ejecutes con `--recreate` verás ahora un listado completo de productos seguido de resultados detallados por query. Ejemplo resumido de salida:
 
 ```
 ??????????????????????????????????????????????????????????????
@@ -87,44 +111,37 @@ Cuando termine, deberías ver:
 
 ? Base de datos lista
 
-??? QUERIES BÁSICAS (1-4) ???
+=== TODOS LOS PRODUCTOS ===
+[1] Laptop | Categoria: Tech | Precio: $1,200.00 | Stock: 5
+[2] Mouse  | Categoria: Tech | Precio: $25.00    | Stock: 50
+[3] Silla  | Categoria: Muebles | Precio: $150.00 | Stock: 3
+[4] Monitor| Categoria: Tech | Precio: $600.00  | Stock: 2
+... (más filas)
 
-Query 1: Proyección a DTO con Select
-Query 2: Filtro y ordenamiento
-Query 3: Filtros avanzados con múltiples condiciones
-Query 4: Proyección con expresiones calculadas
+??? QUERIES BÁSICAS (1-4) ???
+? Query 1 ejecutada  (SQL guardado en docs/query1_proyeccion_basica.sql)
+? Query 2 ejecutada  (SQL guardado en docs/query2_filtro_ordenamiento.sql)
+? Query 3 ejecutada  (SQL guardado en docs/query3_filtro_avanzado.sql)
+? Query 4 ejecutada  (SQL guardado en docs/query4_proyeccion_calculada.sql)
 
 ??? QUERIES AVANZADAS (5-13) ???
-
 Query 5: Paginación (página 1, 5 productos por página)
-  Total: 3, Página: 1, Items: 3
-
-Query 6: Agregados y Grouping
-  Tech: 2 productos, Promedio: 612,50 €
-  Muebles: 1 productos, Promedio: 150,00 €
+  Total: 14, Página: 1, Items: 5
+  - Laptop | Tech | $1,200.00
+  - Mouse  | Tech | $25.00
+  - Silla  | Muebles | $150.00
+  ...
 
 Query 7: Union (productos caros O poco stock)
-  Resultados: 2 productos
-
-Query 8: Intersect (productos caros Y poco stock)
-  Resultados: 0 productos
-
-Query 9: Except (productos caros pero NO poco stock)
-  Resultados: 1 productos
-
-Query 10: Subquery with Any (categorías con productos >500)
-  Categorías encontradas: 1
-
-Query 11: Subquery with All (categorías donde TODOS los productos >20)
-  Categorías encontradas: 2
+  Resultados: 3 productos
+  - Laptop | Tech | $1,200.00
+  - Monitor| Tech | $600.00
+  - Tablet | Tech | $700.00
 
 Query 12: JOIN Explícito
-  Resultados: 3 filas
-
-Query 13: Búsqueda Avanzada con múltiples filtros
-  Resultados encontrados: 1
-
-?????????????????????????????????????????????????????????????
+  Resultados: 14 filas
+  - Laptop | Tech | $1,200.00 | Stock: 5
+  ...
 
 ? Todas las queries ejecutadas exitosamente
 ? Archivos SQL guardados en /docs
@@ -166,30 +183,20 @@ dotnet clean
 
 ## ??? VER LA BASE DE DATOS
 
-Después de ejecutar el programa, puedes ver los datos en SQL Server:
+Después de ejecutar el programa (especialmente con `--recreate`), puedes ver los datos en SQL Server:
 
 ### Con SQL Server Management Studio (SSMS):
 1. Abre SSMS
 2. Conecta a: `(localdb)\mssqllocaldb`
 3. Ve a: `Databases ? LinqAdvancedLab`
 4. Expande `Tables` para ver:
+   - `Products` (varias filas)
    - `Categories` (2 filas)
-   - `Products` (3 filas)
 
-### Datos que verás:
-
-**Categories:**
-| Id | Name |
-|----|------|
-| 1 | Tech |
-| 2 | Muebles |
-
-**Products:**
-| Id | Name | Price | Stock | CategoryId |
-|----|------|-------|-------|-----------|
-| 1 | Laptop | 1200.00 | 5 | 1 |
-| 2 | Mouse | 25.00 | 50 | 1 |
-| 3 | Silla | 150.00 | 3 | 2 |
+### Ver datos de ejemplo:
+```
+SELECT TOP 1000 Id, Name, Price, Stock, CategoryId FROM Products;
+```
 
 ---
 
@@ -291,20 +298,21 @@ dotnet test tests/LinqAdvancedLab.Tests
 
 ## ?? PARA DEMOSTRAR A TU PROFE
 
-Puedes ejecutar estos comandos frente a tu profesor:
+Puedes ejecutar estos comandos EN DIRECTO:
 
-```sh
-# 1. Clonar (si no lo ha clonado)
+```bash
+# 1. Clonar
 git clone https://github.com/rhq-omni777/LinqAdvancedLab.git
+cd LinqAdvancedLab
 
 # 2. Compilar
-cd LinqAdvancedLab && dotnet build
+dotnet build
 
-# 3. Ejecutar tests
+# 3. Tests
 dotnet test tests/LinqAdvancedLab.Tests --verbosity normal
 
-# 4. Ejecutar programa
-dotnet run --project src/LinqAdvancedLab.Console
+# 4. Ejecutar (recrear DB para demo garantizada)
+dotnet run --project src/LinqAdvancedLab.Console -- --recreate
 ```
 
 Y mostrar:
@@ -323,7 +331,6 @@ Y mostrar:
 - **Rúbrica de evaluación:** Ver `/docs/RUBRICA-EVALUACION.md`
 - **Plantilla de diarios:** Ver `/docs/PLANTILLA-DIARIO.md`
 - **Verificación final:** Ver `/docs/VERIFICACION-FINAL.md`
-- **Instrucciones al equipo:** Ver `/docs/INSTRUCCIONES-EQUIPO.md`
 
 ---
 
